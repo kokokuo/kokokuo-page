@@ -1,8 +1,7 @@
 ---
 layout: post
 title: "Homebrew (1) - Mac 上安裝 Homebrew 套件管理工具"
-categories: 
-  - homebrew
+categories: homebrew
 tags:
   - mac
   - homebrew
