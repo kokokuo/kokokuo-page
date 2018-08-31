@@ -25,7 +25,7 @@ lang: zh-Hant
 timezone: Asia/Taipei
 
 theme: jekyll-whiteglass
-remote_theme: yous/whiteglass
+# remote_theme: yous/whiteglass
 # exclude:
 #   - Gemfile
 #   - Gemfile.lock
@@ -51,16 +51,6 @@ plugins:
   - jekyll-paginate
   - jekyll-sitemap
 
-jekyll-archives:
-  enabled:
-    - categories
-    - tags
-  layout: category_archives
-  permalinks:
-    category: /categories/:name/
-    tag: /tags/:name/
-
-
 # Build settings
 markdown: kramdown
 excerpt_separator: "<!-- more -->"
@@ -80,3 +70,11 @@ paginate: 5
 #   toc_levels: 1..6
 
 # jekyll-archives
+jekyll-archives:
+  enabled:
+    - categories
+    - tags
+  layout: category_archives
+  permalinks:
+    category: /categories/:name/
+    tag: /tags/:name/
