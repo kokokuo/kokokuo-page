@@ -13,7 +13,7 @@
 # you will see them accessed via {{ site.title }}, {{ site.author }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: koko's Garage Note
+title: koko's Garage
 author: EasonKuo
 description: > # this means to ignore newlines until "Language & timezone"
   我是 EasonKuo (Github 是 kokokuo)，是一位喜愛資訊技術領域，原本在學專電腦視覺，卻在出社會後卻轉而踏入 Web Backend 與邁向 DevOps 路途的後端工程師。
@@ -55,7 +55,7 @@ markdown: kramdown
 excerpt_separator: "<!-- more -->"
 
 # Outputting
-permalink: /:year/:month/:day/:title/
+permalink: /:year-:month-:day-:title/
 paginate_path: /posts/:num/
 paginate: 5
 
