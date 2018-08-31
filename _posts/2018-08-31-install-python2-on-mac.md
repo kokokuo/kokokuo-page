@@ -3,7 +3,7 @@ layout: post
 title: "Python - 透過 Homebrew 安裝 Python 2 在 Mac 上 (Python2.7.15為例）"
 author: EasonKuo
 categories: python
-tags:
+tags: 
   - python2
   - mac
   - homebrew
