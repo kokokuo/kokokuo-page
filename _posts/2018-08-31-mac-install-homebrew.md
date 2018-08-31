@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Homebrew (1) - Mac 上安裝 Homebrew 套件管理工具"
+author: kokokuo
 categories: homebrew
 tags:
   - mac
