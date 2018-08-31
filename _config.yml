@@ -25,6 +25,7 @@ lang: zh-Hant
 timezone: Asia/Taipei
 
 theme: jekyll-whiteglass
+remote_theme: yous/whiteglass
 # exclude:
 #   - Gemfile
 #   - Gemfile.lock
