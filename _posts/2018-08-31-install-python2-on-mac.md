@@ -1,12 +1,12 @@
 ---
 layout: post
-title: Python - 透過 Homebrew 安裝 Python 2 在 Mac 上 (Python2.7.15為例）
 author: EasonKuo
 categories: python
 tags:
   - python2
   - mac
   - homebrew
+title: "Python - 透過 Homebrew 安裝 Python 2 在 Mac 上 (Python2.7.15為例）"
 ---
 ## 步驟一：安裝 XCode 或 Xcode 命令行工具
 這是開發 Mac 或 iPhone 等 iOS 程式所用的開發工具，安裝此工具的原因是因為，在安裝 XCode 時， 也會依同安裝 C 編譯器，而 Python 的底層是以 C 編寫成，所以會需要 C 的 Compiler 來驅動。
