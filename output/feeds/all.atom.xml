@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>koko's Garage</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2018-08-31T00:00:00+08:00</updated><entry><title>Homebrew (1) - Mac 上安裝 Homebrew 套件管理工具</title><link href="/homebrew-1-mac-shang-an-zhuang-homebrew-tao-jian-guan-li-gong-ju.html" rel="alternate"></link><published>2018-08-31T00:00:00+08:00</published><updated>2018-08-31T00:00:00+08:00</updated><author><name>EasonKuo</name></author><id>tag:None,2018-08-31:/homebrew-1-mac-shang-an-zhuang-homebrew-tao-jian-guan-li-gong-ju.html</id><summary type="html">&lt;!-- Slug: My-first-post --&gt;
+
+&lt;p&gt;Author: EasonKuo&lt;/p&gt;
+&lt;h2&gt;步驟一：安裝 Homebrew&lt;/h2&gt;
+&lt;p&gt;Homebrew 是 Mac 專用的套件管理工具，如同 Linux 中的 apt 或是 yum 工具，許多的套件工具都可以透過 Homebrew 安裝，並且管理（如列出安裝的套件、更新套件、修正套件、移除套件等等）&lt;/p&gt;
+&lt;p&gt;而安裝步驟非常簡單，進入 Homebrew 官網，依照步驟，在 Terminal 輸入下列此串：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$&amp;gt; /usr/bin/ruby -e &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;&lt;img alt="安裝 Homebrew" src="/images/posts/mac-install-homebrew/1-install-homebrew-on-mac.png"&gt;&lt;/p&gt;
+&lt;h2&gt;步驟二：設定環境變數 PATH&lt;/h2&gt;
+&lt;p&gt;安裝完後 …&lt;/p&gt;</summary><content type="html">&lt;!-- Slug: My-first-post --&gt;
+
+&lt;p&gt;Author: EasonKuo&lt;/p&gt;
+&lt;h2&gt;步驟一：安裝 Homebrew&lt;/h2&gt;
+&lt;p&gt;Homebrew 是 Mac 專用的套件管理工具，如同 Linux 中的 apt 或是 yum 工具，許多的套件工具都可以透過 Homebrew 安裝，並且管理（如列出安裝的套件、更新套件、修正套件、移除套件等等）&lt;/p&gt;
+&lt;p&gt;而安裝步驟非常簡單，進入 Homebrew 官網，依照步驟，在 Terminal 輸入下列此串：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$&amp;gt; /usr/bin/ruby -e &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;&lt;img alt="安裝 Homebrew" src="/images/posts/mac-install-homebrew/1-install-homebrew-on-mac.png"&gt;&lt;/p&gt;
+&lt;h2&gt;步驟二：設定環境變數 PATH&lt;/h2&gt;
+&lt;p&gt;安裝完後，為了要使 Homebrew 的指令可以被 Mac 的 Terminal 中的 Bash 程式讀取到，需要設定 &lt;code&gt;/usr/local/bin&lt;/code&gt; 與 &lt;code&gt;/usr/local/sbin&lt;/code&gt; 至環境變數。&lt;/p&gt;
+&lt;p&gt;建立一個 &lt;code&gt;.bash_profile&lt;/code&gt; 或是 &lt;code&gt;.profile&lt;/code&gt; （如果已有其中一個檔案則不需再次建立）並且在檔案中新增此行：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/usr/local/bin:/usr/local/sbin:&lt;span class="nv"&gt;$PATH&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;或是可以透過 Shell 的另一種語法雙引號來設定&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;PATH=/usr/local/bin:/usr/local/sbin:&lt;/span&gt;&lt;span class="nv"&gt;$PATH&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;設定完成後，關閉 Terminal 應用程式重開 或是直接在 Terminal 中輸入以下指令啟動 &lt;code&gt;.bash_profile&lt;/code&gt; 或 &lt;code&gt;.profile&lt;/code&gt; 啟動即可（以下以 &lt;code&gt;.bash_pofile&lt;/code&gt; 為例 ）：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$&amp;gt; &lt;span class="nb"&gt;source&lt;/span&gt; ~/.bash_pofile
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;如果原先的 Mac 中預設環境變數已有其中一個路徑，或是兩個皆有，則可以只需要把剩餘沒有的補上即可。
+例如我的 Mac 透過 export 指令發現環境中缺少 &lt;code&gt;/usr/local/sbin&lt;/code&gt;：&lt;/p&gt;
+&lt;p&gt;&lt;img alt="export 檢查環境變數" src="/images/posts/mac-install-homebrew/2-check-export-env.png"&gt;&lt;/p&gt;
+&lt;p&gt;則編輯 &lt;code&gt;~/.bash_profile&lt;/code&gt;，如下圖：&lt;/p&gt;
+&lt;p&gt;&lt;img alt="編輯 edit_profile" src="/images/posts/mac-install-homebrew/3-edit-bash-profile.png"&gt;&lt;/p&gt;
+&lt;p&gt;完成後，重新開啟 Terminal 應用程式，再次透過 export 檢查，輸入了 &lt;code&gt;/usr/local/sbin&lt;/code&gt; ：&lt;/p&gt;
+&lt;p&gt;&lt;img alt="查看環境變數" src="/images/posts/mac-install-homebrew/5-test-brew.png"&gt;&lt;/p&gt;
+&lt;h2&gt;步驟三：測試 brew 指令&lt;/h2&gt;
+&lt;p&gt;可以透過輸入 brew 來做所有跟 Homebrew 有關的套件管理操作行為，如下圖：&lt;/p&gt;
+&lt;p&gt;如診斷：
+&lt;img alt="測試 brew 指令" src="/images/posts/mac-install-homebrew/5-test-brew.png"&gt;&lt;/p&gt;
+&lt;h2&gt;安裝套件：以 wget 為例&lt;/h2&gt;
+&lt;p&gt;以下透過安裝 wget 套件為例， wget 可以用來直接在終端機上安裝網路上的檔案內容，輸入：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$&amp;gt; brew install
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="安裝 wget" src="/images/posts/mac-install-homebrew/6-ex-install-wget.png"&gt;&lt;/p&gt;
+&lt;h2&gt;Homebrew 資料夾目錄介紹：&lt;/h2&gt;
+&lt;p&gt;如上述所提到的環境變數設定，Homebrew 安裝完後，會放在 &lt;code&gt;/usrl/local&lt;/code&gt; 下，而 Homebrew 下載安裝或管理套件，會影響到  &lt;code&gt;/usrl/local&lt;/code&gt;  下這幾個目錄：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Caskroom  Frameworks  bin  include  opt   share
+Cellar    Homebrew    etc  lib      sbin  var
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;Cellar&lt;/code&gt;：文件夾存放的是所有包安裝所在路徑，包括二進制，文檔和配置文件。依照一下形式放置：按照這樣 &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Cellar/套件名稱/版本號/
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;opt&lt;/code&gt;：由於版本號隨著跟新而改變的，所以需要一個固定不變的路徑作為我們訪問二進制和文檔的路徑，這就是 op t的作用。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Homebrew&lt;/code&gt;：brew 程序所在路徑.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;bin&lt;/code&gt;：所有包安裝之後二進制都會鏈接到這個路徑下&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;share&lt;/code&gt;：所有包安裝之後的文檔都會鏈接到這個路徑下&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;etc&lt;/code&gt;：同上，所有套件的配置文件&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;lib&lt;/code&gt;：同上，所有套件相關庫文件&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Caskroom&lt;/code&gt;：使用 Homebrew Cask 安裝的應用程式 app 的相關資訊或設定的文件&lt;/p&gt;
+&lt;h2&gt;參考文件：&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://www.jianshu.com/p/8ad7056b243f"&gt;1.Homebrew总结&lt;/a&gt;&lt;/p&gt;</content><category term="mac"></category><category term="homebrew"></category></entry><entry><title>Python - 透過 Homebrew 安裝 Python 2 在 Mac 上 (Python2.7.15為例）</title><link href="/python-tou-guo-homebrew-an-zhuang-python-2-zai-mac-shang-python2715wei-li.html" rel="alternate"></link><published>2018-08-31T00:00:00+08:00</published><updated>2018-08-31T00:00:00+08:00</updated><author><name>EasonKuo</name></author><id>tag:None,2018-08-31:/python-tou-guo-homebrew-an-zhuang-python-2-zai-mac-shang-python2715wei-li.html</id><summary type="html">&lt;!-- Slug: My-first-post --&gt;
+
+&lt;p&gt;Author: EasonKuo
+&lt;!-- Summary: What does your post talk about? Write here. --&gt;&lt;/p&gt;
+&lt;h2&gt;步驟一：安裝 XCode 或 Xcode 命令行工具&lt;/h2&gt;
+&lt;p&gt;這是開發 Mac 或 iPhone 等 iOS 程式所用的開發工具，安裝此工具的原因是因為，在安裝 XCode 時， 也會依同安裝 C 編譯器，而 Python 的底層是以 C 編寫成，所以會需要 C 的 Compiler 來驅動。&lt;/p&gt;
+&lt;p&gt;開啟 Terminal App ，並且輸入以下指令安裝 Xcode 的命令行工具：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$&amp;gt; xcode-select --install
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="安裝 XCode Tool" src="/images/posts/install-python2-on-mac/1-Install-XCode-Tool.png"&gt;&lt;/p&gt;
+&lt;p&gt;除了上述的方式，也可以透過 Mac 上的 App Store 安裝完全版的 XCode 開發工具。&lt;/p&gt;
+&lt;!-- more --&gt;
+
+&lt;h2&gt;步驟二 …&lt;/h2&gt;</summary><content type="html">&lt;!-- Slug: My-first-post --&gt;
+
+&lt;p&gt;Author: EasonKuo
+&lt;!-- Summary: What does your post talk about? Write here. --&gt;&lt;/p&gt;
+&lt;h2&gt;步驟一：安裝 XCode 或 Xcode 命令行工具&lt;/h2&gt;
+&lt;p&gt;這是開發 Mac 或 iPhone 等 iOS 程式所用的開發工具，安裝此工具的原因是因為，在安裝 XCode 時， 也會依同安裝 C 編譯器，而 Python 的底層是以 C 編寫成，所以會需要 C 的 Compiler 來驅動。&lt;/p&gt;
+&lt;p&gt;開啟 Terminal App ，並且輸入以下指令安裝 Xcode 的命令行工具：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$&amp;gt; xcode-select --install
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="安裝 XCode Tool" src="/images/posts/install-python2-on-mac/1-Install-XCode-Tool.png"&gt;&lt;/p&gt;
+&lt;p&gt;除了上述的方式，也可以透過 Mac 上的 App Store 安裝完全版的 XCode 開發工具。&lt;/p&gt;
+&lt;!-- more --&gt;
+
+&lt;h2&gt;步驟二：安裝 Homebrew&lt;/h2&gt;
+&lt;p&gt;Homebrew 是 Mac 專用的套件管理工具，如同 Linux 中的 apt 或是 yum 工具，後續透過 Homebrew 來安裝 Python ，進入 Homebrew 官網，依照步驟，在 Terminal 輸入下列此串：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$&amp;gt; /usr/bin/ruby -e &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install&lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="安裝 Homebrew" src="/images/posts/install-python2-on-mac/2-install-homebrew.png"&gt;&lt;/p&gt;
+&lt;h2&gt;步驟三：設定讀取 Homebrew 指令的環境變數&lt;/h2&gt;
+&lt;p&gt;安裝完後，為了要使 Homebrew 的指令可以被 Mac 的 Terminal 中的 Bash 程式讀取到，需要設定 &lt;code&gt;/usr/local/bin&lt;/code&gt; 與 &lt;code&gt;/usr/local/sbin&lt;/code&gt; 至環境變數。&lt;/p&gt;
+&lt;p&gt;建立一個 &lt;code&gt;.bash_profile&lt;/code&gt; 或是 &lt;code&gt;.profile&lt;/code&gt; （如果已有其中一個檔案則不需再次建立）並且在檔案中新增此行：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;/usr/local/bin:/usr/local/sbin:&lt;span class="nv"&gt;$PATH&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;或是可以透過 Shell 的另一種語法雙引號來設定&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;PATH=/usr/local/bin:/usr/local/sbin:&lt;/span&gt;&lt;span class="nv"&gt;$PATH&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;設定完成後，關閉 Terminal 應用程式重開 或是直接在 Terminal 中輸入以下指令啟動 .bash_profile 或 .profile 啟動即可（以下以 .bash_pofile 為例 ）：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$&amp;gt; &lt;span class="nb"&gt;source&lt;/span&gt; ~/.bash_pofile
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;可以透過輸入 brew 來做所有跟 Homebrew 有關的套件管理操作行為，如診斷：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$&amp;gt; brew doctor
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;更詳細的 Homebrew 安裝可以參考 &lt;a href=""&gt;此連結&lt;/a&gt;。&lt;/p&gt;
+&lt;h2&gt;步驟四：透過 Homebrew 安裝 Python&lt;/h2&gt;
+&lt;p&gt;安裝 Python 其實除了透過 Homebrew 的方式外，也可以透過 Python 官方網站，下載 .pkg 的安裝包，但是因為安裝完後檔案的路徑會分別在：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;位置一： /Library/Frameworks/Python.framework
+位置二： /usr/local/bin/
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;這兩個位置，位置二是一個 symlink。另外，安裝包也會附帶 IDLE、PythonLauncher 這兩個軟體，安裝在 Application 資料夾。&lt;/p&gt;
+&lt;p&gt;因此需要除了自己紀錄位置外，刪除時，也要自己去找尋上述兩個位置與 IDLE、PythonLauncher 分別刪除，所以不推薦。&lt;/p&gt;
+&lt;p&gt;而透過 Homebrew 安裝除了， Homebrew 會列出 Python 的安裝位置外，也會把其他未來安裝的套件放在同一處，移除與升級都可以透過指令達成，因此非常便利，所以推薦在 Mac 上使用 Homebrew 安裝。&lt;/p&gt;
+&lt;p&gt;在 Homebrew 中， 目前 Python 2 會以 python@2 的套件名稱呈現，如下執行：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$&amp;gt; brew install python@2
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Homebrew 會一同連 pip 也安裝進去，如下安裝完的結果與訊息：&lt;/p&gt;
+&lt;p&gt;&lt;img alt="安裝完訊息" src="/images/posts/install-python2-on-mac/3-install-python2.png"&gt;&lt;/p&gt;
+&lt;p&gt;安裝完後 Homebrew 會自動為放在 Cellar 的 Python@2 在 Mac 的 &lt;code&gt;/usr/local/opt&lt;/code&gt; 與 &lt;code&gt;/usr/local/bin&lt;/code&gt; 分別建置 link 檔案，如下為 &lt;code&gt;/usr/local/opt&lt;/code&gt;：&lt;/p&gt;
+&lt;p&gt;&lt;img alt="安裝完路徑/usr/local/opt" src="/images/posts/install-python2-on-mac/4-python2-installed-location-1.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;/usr/local/bin&lt;/code&gt; 也有：&lt;/p&gt;
+&lt;p&gt;&lt;img alt="安裝完路徑/usr/local/bin" src="/images/posts/install-python2-on-mac/4-python2-installed-location-2.png"&gt;&lt;/p&gt;
+&lt;p&gt;因此，雖然在另一篇 &lt;a href="http://pythonguidecn.readthedocs.io/zh/latest/starting/install/osx.html"&gt;在Mac OS X上安装Python 2&lt;/a&gt; 有提及需要設定以下 &lt;code&gt;/usr/local/opt/python@2&lt;/code&gt; 在環境變數：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;export&lt;/span&gt; &lt;span class="nv"&gt;PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/usr/local/opt/python@2/libexec/bin:&lt;/span&gt;&lt;span class="nv"&gt;$PATH&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;但因為 Homebrew 也會在 &lt;code&gt;/usr/local/bin&lt;/code&gt; 中建立 Python2 的 Link 環境，因此其實不需要再去設定 &lt;code&gt;/usr/local/opt/python@2&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;除非今天環境中也有安裝 Python 3 ，並且希望可以透過 &lt;code&gt;.bash_profile&lt;/code&gt; 明確區分 Mac 優先以 python 讀取的指令是來自 Python 3 或 Python 2 時，可以放進去，參考 Python2 與 Python 3 共存的設定 (以 Mac 為例）中文章&lt;/p&gt;
+&lt;p&gt;而當安裝完後， 重新開啟 Terminal 直接輸入 Python 時，會讀取到 Homebrew 安裝的 Python 嗎？ &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;答案是根據在 ~/.bash_profile 中 PATH 設定的順序。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;因為再設定環境變數時，系統內建的環境變數 $PATH 是放在後頭， &lt;code&gt;/usr/local/bin&lt;/code&gt; 是在前面，因此輸入 Python 指令時 Bash 讀取 &lt;code&gt;~/.bash_profile&lt;/code&gt; 會先讀到 &lt;code&gt;/usr/local/bin&lt;/code&gt; 底下 python@2 的 Link 檔，因而找到 Homebrew 安裝的 Python 2。&lt;/p&gt;
+&lt;p&gt;因此我們透過透過 python -h 查看後會發現目前的確讀到 Homebrew 安裝的 Python：&lt;/p&gt;
+&lt;p&gt;&lt;img alt="安裝完後的 Python 指令" src="/images/posts/install-python2-on-mac/5-python2-installed-command.png"&gt;&lt;/p&gt;
+&lt;p&gt;至此已經完成 Python2 的安裝。&lt;/p&gt;
+&lt;h3&gt;參考文章：&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://medium.com/denix-daily/macos%E4%B8%8A%E7%9A%84python%E8%B7%AF%E5%BE%91%E5%95%8F%E9%A1%8C-%E5%AE%89%E8%A3%9D%E6%96%B9%E6%B3%95-a10c01cc42a"&gt;1.MacOS上的Python路徑問題＆安裝方法&lt;/a&gt;
+&lt;a href="http://pythonguidecn.readthedocs.io/zh/latest/starting/install/osx.html"&gt;2.在Mac OS X上安装Python 2&lt;/a&gt;&lt;/p&gt;</content><category term="python2"></category><category term="mac"></category><category term="homebrew"></category></entry></feed>

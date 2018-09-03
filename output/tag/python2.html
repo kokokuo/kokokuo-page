@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+        <meta charset="utf-8" />
+        <title>koko's Garage - python2</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="koko's Garage Atom Feed" />
+
+        <!--[if IE]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">koko's Garage </a></h1>
+                <nav><ul>
+                    <li><a href="/category/homebrew.html">homebrew</a></li>
+                    <li><a href="/category/python.html">python</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="/python-tou-guo-homebrew-an-zhuang-python-2-zai-mac-shang-python2715wei-li.html">Python - 透過 Homebrew 安裝 Python 2 在 Mac 上 (Python2.7.15為例）</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2018-08-31T00:00:00+08:00">
+                Published: 五 31 8月 2018
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/easonkuo.html">EasonKuo</a>
+        </address>
+<p>In <a href="/category/python.html">python</a>.</p>
+<p>tags: <a href="/tag/python2.html">python2</a> <a href="/tag/mac.html">mac</a> <a href="/tag/homebrew.html">homebrew</a> </p>
+</footer><!-- /.post-info --><!-- Slug: My-first-post -->
+
+<p>Author: EasonKuo
+<!-- Summary: What does your post talk about? Write here. --></p>
+<h2>步驟一：安裝 XCode 或 Xcode 命令行工具</h2>
+<p>這是開發 Mac 或 iPhone 等 iOS 程式所用的開發工具，安裝此工具的原因是因為，在安裝 XCode 時， 也會依同安裝 C 編譯器，而 Python 的底層是以 C 編寫成，所以會需要 C 的 Compiler 來驅動。</p>
+<p>開啟 Terminal App ，並且輸入以下指令安裝 Xcode 的命令行工具：</p>
+<div class="highlight"><pre><span></span>$&gt; xcode-select --install
+</pre></div>
+
+
+<p><img alt="安裝 XCode Tool" src="/images/posts/install-python2-on-mac/1-Install-XCode-Tool.png"></p>
+<p>除了上述的方式，也可以透過 Mac 上的 App Store 安裝完全版的 XCode 開發工具。</p>
+<!-- more -->
+
+<h2>步驟二：安裝 Homebrew</h2>
+<p>Homebrew 是 Mac 專用的套件管理工具，如同 Linux 中的 apt 或是 yum 工具，後續透過 Homebrew 來安裝 Python ，進入 Homebrew 官網，依照步驟，在 Terminal 輸入下列此串：</p>
+<div class="highlight"><pre><span></span>$&gt; /usr/bin/ruby -e <span class="s2">&quot;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install<span class="k">)</span><span class="s2">&quot;</span>
+</pre></div>
+
+
+<p><img alt="安裝 Homebrew" src="/images/posts/install-python2-on-mac/2-install-homebrew.png"></p>
+<h2>步驟三：設定讀取 Homebrew 指令的環境變數</h2>
+<p>安裝完後，為了要使 Homebrew 的指令可以被 Mac 的 Terminal 中的 Bash 程式讀取到，需要設定 <code>/usr/local/bin</code> 與 <code>/usr/local/sbin</code> 至環境變數。</p>
+<p>建立一個 <code>.bash_profile</code> 或是 <code>.profile</code> （如果已有其中一個檔案則不需再次建立）並且在檔案中新增此行：</p>
+<div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span>/usr/local/bin:/usr/local/sbin:<span class="nv">$PATH</span>
+</pre></div>
+
+
+<p>或是可以透過 Shell 的另一種語法雙引號來設定</p>
+<div class="highlight"><pre><span></span><span class="nb">export</span> <span class="s2">&quot;PATH=/usr/local/bin:/usr/local/sbin:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
+</pre></div>
+
+
+<p>設定完成後，關閉 Terminal 應用程式重開 或是直接在 Terminal 中輸入以下指令啟動 .bash_profile 或 .profile 啟動即可（以下以 .bash_pofile 為例 ）：</p>
+<div class="highlight"><pre><span></span>$&gt; <span class="nb">source</span> ~/.bash_pofile
+</pre></div>
+
+
+<p>可以透過輸入 brew 來做所有跟 Homebrew 有關的套件管理操作行為，如診斷：</p>
+<div class="highlight"><pre><span></span>$&gt; brew doctor
+</pre></div>
+
+
+<p>更詳細的 Homebrew 安裝可以參考 <a href="">此連結</a>。</p>
+<h2>步驟四：透過 Homebrew 安裝 Python</h2>
+<p>安裝 Python 其實除了透過 Homebrew 的方式外，也可以透過 Python 官方網站，下載 .pkg 的安裝包，但是因為安裝完後檔案的路徑會分別在：</p>
+<div class="highlight"><pre><span></span>位置一： /Library/Frameworks/Python.framework
+位置二： /usr/local/bin/
+</pre></div>
+
+
+<p>這兩個位置，位置二是一個 symlink。另外，安裝包也會附帶 IDLE、PythonLauncher 這兩個軟體，安裝在 Application 資料夾。</p>
+<p>因此需要除了自己紀錄位置外，刪除時，也要自己去找尋上述兩個位置與 IDLE、PythonLauncher 分別刪除，所以不推薦。</p>
+<p>而透過 Homebrew 安裝除了， Homebrew 會列出 Python 的安裝位置外，也會把其他未來安裝的套件放在同一處，移除與升級都可以透過指令達成，因此非常便利，所以推薦在 Mac 上使用 Homebrew 安裝。</p>
+<p>在 Homebrew 中， 目前 Python 2 會以 python@2 的套件名稱呈現，如下執行：</p>
+<div class="highlight"><pre><span></span>$&gt; brew install python@2
+</pre></div>
+
+
+<p>Homebrew 會一同連 pip 也安裝進去，如下安裝完的結果與訊息：</p>
+<p><img alt="安裝完訊息" src="/images/posts/install-python2-on-mac/3-install-python2.png"></p>
+<p>安裝完後 Homebrew 會自動為放在 Cellar 的 Python@2 在 Mac 的 <code>/usr/local/opt</code> 與 <code>/usr/local/bin</code> 分別建置 link 檔案，如下為 <code>/usr/local/opt</code>：</p>
+<p><img alt="安裝完路徑/usr/local/opt" src="/images/posts/install-python2-on-mac/4-python2-installed-location-1.png"></p>
+<p><code>/usr/local/bin</code> 也有：</p>
+<p><img alt="安裝完路徑/usr/local/bin" src="/images/posts/install-python2-on-mac/4-python2-installed-location-2.png"></p>
+<p>因此，雖然在另一篇 <a href="http://pythonguidecn.readthedocs.io/zh/latest/starting/install/osx.html">在Mac OS X上安装Python 2</a> 有提及需要設定以下 <code>/usr/local/opt/python@2</code> 在環境變數：</p>
+<div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;/usr/local/opt/python@2/libexec/bin:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
+</pre></div>
+
+
+<p>但因為 Homebrew 也會在 <code>/usr/local/bin</code> 中建立 Python2 的 Link 環境，因此其實不需要再去設定 <code>/usr/local/opt/python@2</code></p>
+<p>除非今天環境中也有安裝 Python 3 ，並且希望可以透過 <code>.bash_profile</code> 明確區分 Mac 優先以 python 讀取的指令是來自 Python 3 或 Python 2 時，可以放進去，參考 Python2 與 Python 3 共存的設定 (以 Mac 為例）中文章</p>
+<p>而當安裝完後， 重新開啟 Terminal 直接輸入 Python 時，會讀取到 Homebrew 安裝的 Python 嗎？ </p>
+<p><strong>答案是根據在 ~/.bash_profile 中 PATH 設定的順序。</strong></p>
+<p>因為再設定環境變數時，系統內建的環境變數 $PATH 是放在後頭， <code>/usr/local/bin</code> 是在前面，因此輸入 Python 指令時 Bash 讀取 <code>~/.bash_profile</code> 會先讀到 <code>/usr/local/bin</code> 底下 python@2 的 Link 檔，因而找到 Homebrew 安裝的 Python 2。</p>
+<p>因此我們透過透過 python -h 查看後會發現目前的確讀到 Homebrew 安裝的 Python：</p>
+<p><img alt="安裝完後的 Python 指令" src="/images/posts/install-python2-on-mac/5-python2-installed-command.png"></p>
+<p>至此已經完成 Python2 的安裝。</p>
+<h3>參考文章：</h3>
+<p><a href="https://medium.com/denix-daily/macos%E4%B8%8A%E7%9A%84python%E8%B7%AF%E5%BE%91%E5%95%8F%E9%A1%8C-%E5%AE%89%E8%A3%9D%E6%96%B9%E6%B3%95-a10c01cc42a">1.MacOS上的Python路徑問題＆安裝方法</a>
+<a href="http://pythonguidecn.readthedocs.io/zh/latest/starting/install/osx.html">2.在Mac OS X上安装Python 2</a></p>                </article>
+            </aside><!-- /#featured -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>

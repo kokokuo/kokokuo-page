@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+        <meta charset="utf-8" />
+        <title>koko's Garage - homebrew</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="koko's Garage Atom Feed" />
+
+        <!--[if IE]>
+            <script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">koko's Garage </a></h1>
+                <nav><ul>
+                    <li class="active"><a href="/category/homebrew.html">homebrew</a></li>
+                    <li><a href="/category/python.html">python</a></li>
+                </ul></nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="/homebrew-1-mac-shang-an-zhuang-homebrew-tao-jian-guan-li-gong-ju.html">Homebrew (1) - Mac 上安裝 Homebrew 套件管理工具</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2018-08-31T00:00:00+08:00">
+                Published: 五 31 8月 2018
+        </abbr>
+
+        <address class="vcard author">
+                By                         <a class="url fn" href="/author/easonkuo.html">EasonKuo</a>
+        </address>
+<p>In <a href="/category/homebrew.html">homebrew</a>.</p>
+<p>tags: <a href="/tag/mac.html">mac</a> <a href="/tag/homebrew.html">homebrew</a> </p>
+</footer><!-- /.post-info --><!-- Slug: My-first-post -->
+
+<p>Author: EasonKuo</p>
+<h2>步驟一：安裝 Homebrew</h2>
+<p>Homebrew 是 Mac 專用的套件管理工具，如同 Linux 中的 apt 或是 yum 工具，許多的套件工具都可以透過 Homebrew 安裝，並且管理（如列出安裝的套件、更新套件、修正套件、移除套件等等）</p>
+<p>而安裝步驟非常簡單，進入 Homebrew 官網，依照步驟，在 Terminal 輸入下列此串：</p>
+<div class="highlight"><pre><span></span>$&gt; /usr/bin/ruby -e <span class="s2">&quot;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install<span class="k">)</span><span class="s2">&quot;</span>
+</pre></div>
+
+
+<!-- more -->
+
+<p><img alt="安裝 Homebrew" src="/images/posts/mac-install-homebrew/1-install-homebrew-on-mac.png"></p>
+<h2>步驟二：設定環境變數 PATH</h2>
+<p>安裝完後，為了要使 Homebrew 的指令可以被 Mac 的 Terminal 中的 Bash 程式讀取到，需要設定 <code>/usr/local/bin</code> 與 <code>/usr/local/sbin</code> 至環境變數。</p>
+<p>建立一個 <code>.bash_profile</code> 或是 <code>.profile</code> （如果已有其中一個檔案則不需再次建立）並且在檔案中新增此行：</p>
+<div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span>/usr/local/bin:/usr/local/sbin:<span class="nv">$PATH</span>
+</pre></div>
+
+
+<p>或是可以透過 Shell 的另一種語法雙引號來設定</p>
+<div class="highlight"><pre><span></span><span class="nb">export</span> <span class="s2">&quot;PATH=/usr/local/bin:/usr/local/sbin:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
+</pre></div>
+
+
+<p>設定完成後，關閉 Terminal 應用程式重開 或是直接在 Terminal 中輸入以下指令啟動 <code>.bash_profile</code> 或 <code>.profile</code> 啟動即可（以下以 <code>.bash_pofile</code> 為例 ）：</p>
+<div class="highlight"><pre><span></span>$&gt; <span class="nb">source</span> ~/.bash_pofile
+</pre></div>
+
+
+<p>如果原先的 Mac 中預設環境變數已有其中一個路徑，或是兩個皆有，則可以只需要把剩餘沒有的補上即可。
+例如我的 Mac 透過 export 指令發現環境中缺少 <code>/usr/local/sbin</code>：</p>
+<p><img alt="export 檢查環境變數" src="/images/posts/mac-install-homebrew/2-check-export-env.png"></p>
+<p>則編輯 <code>~/.bash_profile</code>，如下圖：</p>
+<p><img alt="編輯 edit_profile" src="/images/posts/mac-install-homebrew/3-edit-bash-profile.png"></p>
+<p>完成後，重新開啟 Terminal 應用程式，再次透過 export 檢查，輸入了 <code>/usr/local/sbin</code> ：</p>
+<p><img alt="查看環境變數" src="/images/posts/mac-install-homebrew/5-test-brew.png"></p>
+<h2>步驟三：測試 brew 指令</h2>
+<p>可以透過輸入 brew 來做所有跟 Homebrew 有關的套件管理操作行為，如下圖：</p>
+<p>如診斷：
+<img alt="測試 brew 指令" src="/images/posts/mac-install-homebrew/5-test-brew.png"></p>
+<h2>安裝套件：以 wget 為例</h2>
+<p>以下透過安裝 wget 套件為例， wget 可以用來直接在終端機上安裝網路上的檔案內容，輸入：</p>
+<div class="highlight"><pre><span></span>$&gt; brew install
+</pre></div>
+
+
+<p><img alt="安裝 wget" src="/images/posts/mac-install-homebrew/6-ex-install-wget.png"></p>
+<h2>Homebrew 資料夾目錄介紹：</h2>
+<p>如上述所提到的環境變數設定，Homebrew 安裝完後，會放在 <code>/usrl/local</code> 下，而 Homebrew 下載安裝或管理套件，會影響到  <code>/usrl/local</code>  下這幾個目錄：</p>
+<div class="highlight"><pre><span></span>Caskroom  Frameworks  bin  include  opt   share
+Cellar    Homebrew    etc  lib      sbin  var
+</pre></div>
+
+
+<p><code>Cellar</code>：文件夾存放的是所有包安裝所在路徑，包括二進制，文檔和配置文件。依照一下形式放置：按照這樣 </p>
+<div class="highlight"><pre><span></span>Cellar/套件名稱/版本號/
+</pre></div>
+
+
+<p><code>opt</code>：由於版本號隨著跟新而改變的，所以需要一個固定不變的路徑作為我們訪問二進制和文檔的路徑，這就是 op t的作用。</p>
+<p><code>Homebrew</code>：brew 程序所在路徑.</p>
+<p><code>bin</code>：所有包安裝之後二進制都會鏈接到這個路徑下</p>
+<p><code>share</code>：所有包安裝之後的文檔都會鏈接到這個路徑下</p>
+<p><code>etc</code>：同上，所有套件的配置文件</p>
+<p><code>lib</code>：同上，所有套件相關庫文件</p>
+<p><code>Caskroom</code>：使用 Homebrew Cask 安裝的應用程式 app 的相關資訊或設定的文件</p>
+<h2>參考文件：</h2>
+<p><a href="https://www.jianshu.com/p/8ad7056b243f">1.Homebrew总结</a></p>                </article>
+            </aside><!-- /#featured -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>links</h2>
+                        <ul>
+                            <li><a href="http://getpelican.com/">Pelican</a></li>
+                            <li><a href="http://python.org/">Python.org</a></li>
+                            <li><a href="http://jinja.pocoo.org/">Jinja2</a></li>
+                            <li><a href="#">You can modify those links in your config file</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+                            <li><a href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+
+                            <li><a href="#">You can add links in your config file</a></li>
+                            <li><a href="#">Another social link</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <address id="about" class="vcard body">
+                Proudly powered by <a href="http://getpelican.com/">Pelican</a>, which takes great advantage of <a href="http://python.org">Python</a>.
+                </address><!-- /#about -->
+
+                <p>The theme is by <a href="http://coding.smashingmagazine.com/2009/08/04/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+        </footer><!-- /#contentinfo -->
+
+</body>
+</html>
