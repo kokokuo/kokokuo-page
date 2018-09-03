@@ -1,2 +1,0 @@
-# kokokuo.github.io
-
